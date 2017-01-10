@@ -196,7 +196,7 @@ function stepRowClickFunc(){
 			$('#requestContentView').text(obj.requestContent);
 			$('#responseContentView').text(obj.responseContent);
 			
-			var reqParamsMatchList = obj.requestContent.match(/\\$\{.*\}/gi);
+			var reqParamsMatchList = obj.requestContent.match(/\\$.*\\$/gi);
 			$('#reqParamsView').html('');
 			for(var i=0;i< reqParamsMatchList.length;i++ ){
 				$('#reqParamsView').append('<label class="control-label">' + reqParamsMatchList[i] + '</label><div class="controls"><input type="text" class="input-medium required" value="' + getValByStepParamKey(currentStep.reqParams,reqParamsMatchList[i]) + '"/></div>');
